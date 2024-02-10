@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Calculator</title>
+
+    <link rel="stylesheet" href="./index.css" />
+
+</head>
+
+<body>
+    <h1>CALCULATOR</h1>
+    <div class="container">
+        <div id="display"></div>
+        <div id="keywords">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>+</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+            <div>-</div>
+            <div>7</div>
+            <div>8</div>
+            <div>9</div>
+            <div>*</div>
+            <div>C</div>
+            <div>0</div>
+            <div>=</div>
+            <div>/</div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    let keys=document.querySelectorAll("#keywords>div");
+    console.log(keys);
+
+    for (let i=0;i<keys.length;i++) {
+        keys[i].addEventListener("click", myFunction)
+    }
+
+    let bag = "";
+
+    function myFunction(event) {
+        let targetNumber = event.target.innerText;
+
+        if (targetNumber == "C") {
+            document.querySelector("#display").innerText = "";
+            bag = ""
+        }
+        else if (targetNumber == "=") {
+            console.log(eval(bag));
+            let result = eval(bag);
+            document.querySelector("#display").innerText = result;
+        }
+        else {
+            bag = bag + targetNumber
+            document.querySelector("#display").innerText = bag;
+        }
+    }
+
+    console.log(eval(2 * 3))
+</script>
